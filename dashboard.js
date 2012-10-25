@@ -10,7 +10,7 @@ app.configure(function(){
 app.get('/', function(req, res, next){
   res.render('/public/index.html');
 });
-app.listen(8081);
+app.listen(process.env.PORT || 8081);
 console.log('Server running at http://localhost:8081/');
 
 var io  = require('socket.io').listen(app);
