@@ -1,8 +1,8 @@
-sys     = require('util');
-express = require('express');
-twitter = require('ntwitter');
+var sys     = require('util');
+var express = require('express');
+var twitter = require('ntwitter');
 
-app = express.createServer();
+var app = express.createServer();
 app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 });
@@ -10,8 +10,8 @@ app.configure(function(){
 app.get('/', function(req, res, next){
   res.render('/public/index.html');
 });
-app.listen(process.env.PORT || 8081);
-console.log('Server running at http://localhost:8081/');
+app.listen(process.env.PORT || 3000);
+console.log('Server running at http://localhost:3000/');
 
 var io  = require('socket.io').listen(app);
 io.set('log level', 1);
