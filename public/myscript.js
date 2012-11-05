@@ -1,6 +1,4 @@
 var filters='';
-// var socket = io.connect('http://twitterfirehose.herokuapp.com:80');
-// var socket = io.connect('http://localhost:3000');
 var socket = io.connect(window.location.hostname);
 
 socket.on('message', function(json) {
