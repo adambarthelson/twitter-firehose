@@ -10,17 +10,17 @@ app.configure(function(){
 app.get('/', function(req, res, next){
   res.render('/public/index.html');
 });
-app.listen(process.env.PORT || 3000);
-console.log('Server running at http://localhost:3000/');
+app.listen(process.env.PORT || 20853);
+console.log('Server running at http://localhost:20853/');
 
 var io  = require('socket.io').listen(app);
 // Heroku won't actually allow us to use WebSockets
 // so we have to setup polling instead.
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
-io.configure(function () {
-  io.set("transports", ["xhr-polling"]);
-  io.set("polling duration", 10);
-});
+// io.configure(function () {
+//   io.set("transports", ["xhr-polling"]);
+//   io.set("polling duration", 10);
+// });
 
 myList = [];
 Array.prototype.del = function(val) {
