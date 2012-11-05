@@ -1,5 +1,6 @@
 var filters='';
-var socket = io.connect('http://twitterfirehose.herokuapp.com');
+var socket = io.connect('http://twitterfirehose.herokuapp.com:80');
+// var socket = io.connect('http://localhost:3000');
 socket.on('message', function(json) {
     data = JSON.parse(json);
     var replacePattern = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
