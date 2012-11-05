@@ -14,7 +14,13 @@ app.listen(process.env.PORT || 3000);
 console.log('Server running at http://localhost:3000/');
 
 var io  = require('socket.io').listen(app);
-io.set('log level', 1);
+// Heroku won't actually allow us to use WebSockets
+// so we have to setup polling instead.
+// https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
+io.configure(function () {
+  io.set("transports", ["xhr-polling"]);
+  io.set("polling duration", 10);
+});
 
 myList = [];
 Array.prototype.del = function(val) {
